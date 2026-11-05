@@ -1,0 +1,38 @@
+
+class Calculadora:
+    def adicao(self, x, y):
+        try:
+            return x + y
+        except TypeError:
+            return "Erro: Tipo da dados inválido"
+
+    def subtracao(self, x, y):
+        try:
+            return x - y
+        except TypeError:
+            return "Erro: Tipo da dados inválido"
+
+    def divisao(self, x, y):
+        try:
+            return x / y
+        except TypeError:
+            return "Erro: Tipo da dados inválido"
+        except ZeroDivisionError:
+            return "Erro: Não é possivel dividir por 0"
+
+    def multiplicacao(self, x, y):
+        try:
+            return x * y
+        except TypeError:
+            return "Erro: Tipo da dados inválido"
+
+        
+calculadora = Calculadora()
+
+x = eval(input("Digite o valor de x: "))
+y = eval(input("Digite o valor de y: "))
+
+print(calculadora.adicao(x, y))
+print(calculadora.subtracao(x, y))
+print(calculadora.divisao(x, y))
+print(calculadora.multiplicacao(x, y))
