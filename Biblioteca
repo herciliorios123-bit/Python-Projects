@@ -1,0 +1,54 @@
+class Livro:
+    def __init__(self, titulo, autor, isbn):
+        self.titulo = titulo
+        self.autor = autor
+        self.isbn = isbn
+
+class Biblioteca:
+    def __init__(self, nome):
+        self.nome = nome
+        self.livros = []
+
+    def adicionar_livros(self, livro):
+        self.livros.append(livro)
+        print(f'Livro "{livro.titulo}" adicionado à biblioteca "{self.nome}".')
+
+    def remover_livro(self, isbn):
+        for livro in self.livros:
+            if livro.isbn == isbn:
+                self.livros.remove(livro)
+                print(f'Livro "{livro.titulo}" removido da biblioteca')
+                return
+        print(f'Livro com ISBN {isbn} não encontrado na bibliteca "{self.nome}".')
+
+    def listar_livros(self):
+        if not self.livros:
+            print(f'Livros no biblioteca "{self.nome}" não tem livros.')
+        else:
+            for livro in self.livros:
+                print(f'- {livro.titulo} por {livro.autor} (ISBN: {livro.isbn})')
+
+# 1. Criando a biblioteca
+minha_biblioteca = Biblioteca("Biblioteca Central")
+
+# 2. Criando alguns livros novos
+livro1 = Livro("O Pequeno Príncipe", "Antoine de Saint-Exupéry", "978-8595081512")
+livro2 = Livro("Dom Casmurro", "Machado de Assis", "978-8572323672")
+livro3 = Livro("1984", "George Orwell", "978-0451524935")
+
+# 3. Adicionando os livros na biblioteca (usando o append por trás dos panos!)
+minha_biblioteca.adicionar_livros(livro1)
+minha_biblioteca.adicionar_livros(livro2)
+minha_biblioteca.adicionar_livros(livro3)
+
+# 4. Listando todos para ver se deu certo
+minha_biblioteca.listar_livros()
+
+# Removendo um livro da Biblioteca
+minha_biblioteca.remover_livro("978-0451524935")
+
+# 5. Listando todos para ver se deu certo
+minha_biblioteca.listar_livros()
+
+
+        
